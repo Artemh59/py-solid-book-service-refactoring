@@ -8,19 +8,25 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
     for cmd, method_type in commands:
         if cmd == "display":
             if method_type == "console":
-                DisplayConsole.display(book)
+                display = DisplayConsole(book)
+                display.display()
             else:
-                DisplayReverse.display(book)
+                display = DisplayReverse(book)
+                display.display()
         elif cmd == "print":
             if method_type == "console":
-                PrintConsole.print(book)
+                print_console = PrintConsole(book)
+                print_console.print()
             else:
-                PrintReverse.print(book)
+                print_reverse = PrintReverse(book)
+                print_reverse.print()
         elif cmd == "serialize":
             if method_type == "json":
-                return SerializeJson.serialize(book)
+                serialize = SerializeJson(book)
+                return serialize.serialize()
             else:
-                return SerializeXml.serialize(book)
+                serialize = SerializeXml(book)
+                return serialize.serialize()
 
 
 if __name__ == "__main__":
