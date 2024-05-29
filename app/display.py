@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 class Display(ABC):
     @abstractmethod
-    def display(self):
+    def display(self) -> None:
         pass
 
 
